@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      main {
+        width: 320px;
+        height: 160px;
+        border: 3px solid #000;
+      }
+    </style>
+    <script src="./login.js"></script>
+  </head>
+  <body>
+    <main>
+      <h3>로그인</h3>
+      <div>
+        <label>
+          아이디 :
+          <input type="text" id="id" placeholder="아이디를 입력하세요." />
+        </label>
+      </div>
+      <div>
+        <label>
+          비밀번호 :
+          <input type="password" id="pw" placeholder="비밀번호를 입력하세요" />
+        </label>
+      </div>
+      <div>
+        <input type="button" id="lg_bt" value="login" onclick="login();" />
+      </div>
+    </main>
+  </body>
+</html>
