@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #main_grid {
+        width: 400px;
+        height: 240px;
+        border: 5px solid #000;
+
+        display: grid;
+        grid-column: 100;
+        grid-row: 100;
+        grid-template-columns: repeat(100, 4px);
+        grid-template-rows: repeat(100, 4px);
+      }
+      .main1{
+       grid-column: 5/80;
+       grid-row: 1;
+       font-size: x-large;
+      }
+      .main2{ 
+      grid-column: 5/80;
+      grid-row: 25;
+      }
+      .main3{ 
+      grid-column: 5/80;
+      grid-row:40;
+      }
+      .main4{
+      grid-column: 75/80;
+      grid-row:24
+      }
+      .bt {
+        width: 72px;
+        height: 88px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main_grid">
+      <h3 class="main1">로그인</h3>
+
+      <div class="main2">
+        <!-- 아이디 입력란 -->
+        <label>
+          아이디
+          <input type="text" id="id" placeholder="아이디를 입력하세요" />
+        </label>
+      </div>
+      <div class="main3">
+        <!-- 비밀번호 입력란 -->
+        <label>
+          비밀번호
+          <input type="password" id="pw" placeholder="비밀번호를 입력하세요" />
+        </label>
+      </div class="main4">
+      <!-- 로그인 버튼 -->
+      <div class="main4">
+        <input class="bt" type="button" value="login" onclick="login();" />
+      </div>
+    </main>
+
+    <!-- 자바스크립트 -->
+    <script>
+      const idArr = ["apple", "banana", "orange"];
+      const pwArr = [1111, 2222, 3333];
+
+      const inputID = document.querySelector("#id");
+      const inputPW = document.querySelector("#pw");
+
+      function login() {
+        // 사용자가 입력한 아이디가 일치 한다면 idArr배열의 요소 중 같은 값의 인덱스 번호 찾기
+        const idIndex = idArr.findIndex((id) => id === inputID.value);
+
+        if (idIndex === -1) {
+          alert("해당 아이디가 존재하지 않습니다");
+        } else if (inputPW.value == pwArr[idIndex]) {
+          location.href = "success.html";
+        } else {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      }
+    </script>
+  </body>
+</html>
