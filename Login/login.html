@@ -75,7 +75,9 @@
       const inputPW = document.querySelector("#pw");
 
       function login() {
-        // 사용자가 입력한 아이디가 일치 한다면 idArr배열의 요소 중 같은 값의 인덱스 번호 찾기
+        // findIndex 사용
+        // 사용자가 입력한 id값과 idArr배열 요소 중 일치 하는 것이 있다면 해당 인덱스 번호 반환
+        // 만약 없다면 -1 반환
         const idIndex = idArr.findIndex((id) => id === inputID.value);
 
         if (idIndex === -1) {
