@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETFLIX</title>
+  </head>
+  <style>
+    body {
+      background-color: #000;
+    }
+
+    h1 {
+      color: #f00;
+      text-align: center;
+    }
+
+    div {
+      text-align: center;
+    }
+    #table {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1>NETFLIX</h1>
+    <div>
+      <input type="button" value="장르 ▼" id="open" onclick="genre()" />
+    </div>
+    <div id="table">
+      <input type="button" value="코미디" onclick="comedyOpen()" />
+      <input type="button" value="로맨스" onclick="romanceOpen()" />
+      <input type="button" value="스릴러" onclick="thrillerOpen()" />
+    </div>
+
+    <script src="./net.js"></script>
+  </body>
+</html>
