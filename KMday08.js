@@ -67,6 +67,7 @@ const getBestLists = [
 ];
 
 //1. 크림 종류만 보고싶음 (단, 이름만)
+
 const cream = getBestLists
     .filter((getBestList) => getBestList.type === "cream")
     .map((getBestList) => getBestList.title);
@@ -74,14 +75,35 @@ const cream = getBestLists
 console.log(cream);
 
 // 2.가격이 낮은 순대로 다시 정렬
-const lowprice = getBestLists
-    .map((getBestList) => getBestList.price)
-    .sort((a, b) => a - b);
+const pay = getBestLists.map((getBestList) => getBestList.price);
+const low = pay.sort((a, b) => a - b);
 
-console.log(lowprice);
-
-//아..근데 전체 오브젝트를 정렬하고 싶다....
+console.log(low);
 
 //3.  랭킹 3<->5 교체되었음
+const change = getBestLists.slice(2, 3);
+const change2 = getBestLists.splice(2, 1, getBestLists[4]);
+const change4 = getBestLists.splice(4, 1, change);
 
-//4. 종류별로 묶어서 정렬?(크림/선케어/마스크팩/메이크업/비타민 순으로)
+console.log(getBestLists);
+
+// 4. 종류별로 묶어서 정렬?(크림/선케어/마스크팩/메이크업/비타민 순으로)
+
+const cream1 = getBestLists.filter(
+    (getBestList) => getBestList.type === "cream"
+);
+const suncare = getBestLists.filter(
+    (getBestList) => getBestList.type === "sun block"
+);
+const mask = getBestLists.filter(
+    (getBestList) => getBestList.type === "mask sheet"
+);
+const makeup = getBestLists.filter(
+    (getBestList) => getBestList.type === "makeup"
+);
+const vitamin = getBestLists.filter(
+    (getBestList) => getBestList.type === "viatmin"
+);
+
+// console.log(suncare);
+console.log(cream1, suncare, mask, makeup, vitamin);
