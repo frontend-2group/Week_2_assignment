@@ -90,7 +90,7 @@ const lowprice = getBestLists
 console.log(lowprice);
 
 //3. 종류별로 묶어서 정렬?(크림/선케어/마스크팩/메이크업/비타민 순으로)
-console.log(`---------------3---------------------`);
+// console.log(`---------------3---------------------`);
 
 const cream1 = getBestLists.filter(
     (getBestList) => getBestList.type === "cream"
@@ -107,13 +107,28 @@ const makeup = getBestLists.filter(
 const vitamin = getBestLists.filter(
     (getBestList) => getBestList.type === "vitamin"
 );
+const vitaminLists = vitamin.map((product) => product.title);
 
-console.log(cream1, suncare, mask, makeup, vitamin);
+// console.log(cream1, suncare, mask, makeup, vitamin);
 
-// console.log(
-//     `종류별로 나누면 ${cream1}, ${suncare}, ${mask}, ${makeup}, ${vitamin}이다`
-// );
-//119는 왜 도대체 ${}안에 결과값이 object로만 나오는 것인가...
+//------------------지호님!!!!-------------
+
+console.log(
+    "종류별로 나누면:",
+    {
+        크림: cream1,
+        선케어: suncare,
+        마스크: mask,
+        메이크업: makeup,
+        비타민: vitamin,
+    },
+    "이다"
+);
+//******console.log()객체로 나타내려면 ,{}, --> ","로 구분해야함!!!!*/
+
+//-------------------------------------
+// console.log(`종류별로 나누면  비타민${getBestLists[vitamin]}이다`);
+// //119는 왜 도대체 ${}안에 결과값이 object로만 나오는 것인가...
 
 // 4.  랭킹 3<->5 교체되었음
 console.log(`---------------4---------------------`);
@@ -121,11 +136,11 @@ console.log(`---------------4---------------------`);
 const getBestListClear = getBestLists.sort((a, b) => a.ranking - b.ranking);
 //위에서 2. 낮은 가격대로 정렬되있어서 초기화 함
 
-const change = getBestListClear.slice(2, 3);
-const change3 = getBestListClear.splice(2, 1, getBestLists[4]);
-const change5 = getBestListClear.splice(4, 1, change);
+// const change = getBestListClear.slice(2, 3);
+// const change3 = getBestListClear.splice(2, 1, getBestLists[4]);
+// const change5 = getBestListClear.splice(4, 1, change);
 
-console.log(getBestListClear);
+// console.log(getBestListClear);
 
 //125번째 줄에서 change 들어간게 좀다르게 정렬되는데..[ 1,2,5[change] 6,7,8] 가운데 []없애고 싶으면 어떻게 할까..?
 //새로 찍으면 복사본이라 undefined 나옴.. 하....
@@ -133,10 +148,11 @@ console.log(getBestListClear);
 //5. 1+1인 제품 갯수와 타이틀만 출력
 console.log(`---------------5---------------------`);
 
+//---------------------------------실패---------------------------------------
 // const findFreeItems = getBestLists.map((getBestList) => getBestList.content);
 
-// const get1free = findFreeItems.filter(
-//     (findFreeItem) => findFreeItem == included("1 + 1")
+// const get1free = findFreeItems.findIndex(
+//     (findFreeItem) => findFreeItem == included("1+1")
 // );
 // // .map((getBestList)=> getBestList)
 
@@ -144,3 +160,56 @@ console.log(`---------------5---------------------`);
 
 //배열내에서 키에서 특정 단어가 포함된것만 찾고 싶은데 모르겠다.....
 //1+1인 상품만 찾고 싶은데...ㅠㅠㅠㅠㅠㅠ
+
+//--------------------------------실패-----------------------------------------
+
+//-------지호님 --------------------
+
+// const findFreeItems = getBestLists
+//     .filter((item) => item.content.includes("1+1"))
+//     .map((item) => item.content);
+
+// console.log(findFreeItems);
+
+//--------주연님 -------------------
+
+// const promotionLists = getBestLists.filter(
+//     (product) => product.promotion === "1+1"
+// );
+// const brandLists = promotionLists.map((product) => product.title);
+// console.log(promotionLists.length, brandLists);
+
+//주연님은 배열에 promotion 추가해서 연결!!
+
+/*const getBestLists = [
+    {
+        ranking: 1,
+        id: 186780,
+        type: "mask sheet",
+        title: "러븀",
+        content: "[단독선런칭]유자겔마스크 5매",
+        price: 16250,
+    },
+    {
+        ranking: 2,
+        id: 152093,
+        type: "skincare",
+        title: "아이소이",
+        content: "[1등잡티세럼] 아이소이 세럼 더블기획 (1+1) ",
+        promotion: '1+1',
+        price: 39800,
+    },
+    ]
+     */
+
+//---------------다시 도전-----------
+const get1free = getBestLists
+    .filter((getBestList) => getBestList.content.includes("1+1"))
+    .map(
+        (getBestList) =>
+            `${getBestList.title},${getBestList.content}${getBestList.price}`
+    );
+
+console.log(get1free);
+
+//꺅꺄뀨ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ 주연님이랑 지호님이 다 도와주심!!!!!!!!!
