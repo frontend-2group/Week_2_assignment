@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            table {
+                border: 1px solid gray;
+            }
+            tr > th {
+                color: gray;
+                padding: 20px;
+            }
+            #line > th {
+                border-bottom: 1px dotted darkgrey;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr id="line">
+                <th>랭킹</th>
+                <th>id</th>
+                <th>type</th>
+                <th>제품명</th>
+                <th>세부사항</th>
+                <th>가격</th>
+            </tr>
+            <tr id="list"></tr>
+        </table>
+        <script src="./post.js"></script>
+    </body>
+</html>
